@@ -78,13 +78,31 @@
     // --------------------------------------------------------------
     //
     // test if a specific row on this board contains a conflict
-    hasRowConflictAt: function(rowIndex) {
-      return false; // fixme
+     hasRowConflictAt: function(row) {
+      var counter = 0;
+      for (var i = 0; i < row.length; i++) {
+        if (row[i] === 1) {
+          counter++;
+        }
+      }
+      if (counter > 1) {
+        return true;
+      } else {
+        return false;
+      }
     },
 
     // test if any rows on this board contain conflicts
-    hasAnyRowConflicts: function() {
-      return false; // fixme
+      hasAnyRowConflicts: function() {
+      var rows = this.attributes
+      for (var key in rows){
+        var singleRowConflict = this.hasRowConflictAt(rows[key])
+        if (singleRowConflict) {
+          return true;
+        }
+      }
+      return false;
+
     },
 
 
@@ -94,11 +112,26 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
-      return false; // fixme
+      var counter = 0;
+      for (var i = 0; i < this.get(colIndex).length; i++) {
+        if (this.get(i)[colIndex] === 1) {
+          counter++;
+        }
+      }
+      if (counter > 1) {
+        return true;
+      } else {
+        return false;
+      } // fixme
     },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
+      for (var i = 0; i < this.attributes.n; i++) {
+        if (this.hasColConflictAt(i)) {
+          return true;
+        }
+      }
       return false; // fixme
     },
 
@@ -109,6 +142,13 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
+      console.log(majorDiagonalColumnIndexAtFirstRow)
+      var storage = [];
+      for (var i = 0; i < majorDiagonalColumnIndexAtFirstRow.length; i++) {
+        if (row[i] === 0 && this.get(i[colIndex]) === 0) {
+          storage.push()
+        }
+      }
       return false; // fixme
     },
 
