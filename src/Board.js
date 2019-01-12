@@ -62,7 +62,7 @@
     },
 
 
-/*
+    /*
          _             _     _
      ___| |_ __ _ _ __| |_  | |__   ___ _ __ ___ _
     / __| __/ _` | '__| __| | '_ \ / _ \ '__/ _ (_)
@@ -78,7 +78,7 @@
     // --------------------------------------------------------------
     //
     // test if a specific row on this board contains a conflict
-     hasRowConflictAt: function(row) {
+    hasRowConflictAt: function(row) {
       var counter = 0;
       for (var i = 0; i < row.length; i++) {
         if (row[i] === 1) {
@@ -93,10 +93,10 @@
     },
 
     // test if any rows on this board contain conflicts
-      hasAnyRowConflicts: function() {
-      var rows = this.attributes
-      for (var key in rows){
-        var singleRowConflict = this.hasRowConflictAt(rows[key])
+    hasAnyRowConflicts: function() {
+      var rows = this.attributes;
+      for (var key in rows) {
+        var singleRowConflict = this.hasRowConflictAt(rows[key]);
         if (singleRowConflict) {
           return true;
         }
@@ -142,11 +142,11 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      console.log(majorDiagonalColumnIndexAtFirstRow)
+      console.log(majorDiagonalColumnIndexAtFirstRow);
       var storage = [];
       for (var i = 0; i < majorDiagonalColumnIndexAtFirstRow.length; i++) {
         if (row[i] === 0 && this.get(i[colIndex]) === 0) {
-          storage.push()
+          storage.push();
         }
       }
       return false; // fixme
