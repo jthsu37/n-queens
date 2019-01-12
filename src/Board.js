@@ -105,8 +105,6 @@
 
     },
 
-
-
     // COLUMNS - run from top to bottom
     // --------------------------------------------------------------
     //
@@ -134,22 +132,45 @@
       }
       return false; // fixme
     },
+    // 0[-3], 0[-2], 0[-1],0[0], 0[1], 0[2], 0[3]],
+    // 1[-3], 1[-2], 1[-1],1[0], 1[1], 1[2], 1[3]],
+    // 2[-3], 2[-2], 2[-1],2[0], 2[1], 2[2], 2[3]],
+    // 3[-3], 3[-2], 3[-1],3[0], 3[1], 3[2], 3[3]]
 
+    // [ 0,  1, 2, 3]
+    // [-1, 0, 1, 2],
+    // [-2, -1, 0, 1],
+    // [-3, -2, -1, 0]
+    // if (row[colIndex] = 0[0] === 1 && row[colIndex] = 1[1] === 1) {
+    //   return true;
+    // } else
 
+    // if(0[0] === 1) && ((1[1] === 1 || 2[2] === 1 || 3[3] === 1) {
+    //     return true;
+    // }
 
+    // if( rowIndex[0] === 1 && colIndex[0] ===1 ) && (rowIndex [1] === 1 && colINdex[1] ===1) {
+
+    // }
     // Major Diagonals - go from top-left to bottom-right
     // --------------------------------------------------------------
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      console.log(majorDiagonalColumnIndexAtFirstRow);
+      // console.log(majorDiagonalColumnIndexAtFirstRow);
       var storage = [];
-      for (var i = 0; i < majorDiagonalColumnIndexAtFirstRow.length; i++) {
-        if (row[i] === 0 && this.get(i[colIndex]) === 0) {
-          storage.push();
+      var row = 0;
+      var col = majorDiagonalColumnIndexAtFirstRow;
+
+      for (; row < this.attributes.n && col < this.attributes.n; row++ && col++ ) {
+        if (row[col] === 1) {
+          storage.push(row[col]);
         }
+        if (storage.length > 1) {
+          return true;
+        }
+        return false; // fixme
       }
-      return false; // fixme
     },
 
     // test if any major diagonals on this board contain conflicts
@@ -164,6 +185,7 @@
     //
     // test if a specific minor diagonal on this board contains a conflict
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
+      //console.log(minorDiagonalColumnIndexAtFirstRow)
       return false; // fixme
     },
 
