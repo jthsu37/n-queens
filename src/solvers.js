@@ -13,34 +13,6 @@
 
 // return a matrix (an array of arrays) representing a single nxn chessboard, with n rooks placed such that none of them can attack each other
 
-
-/*
-0[0], 0[1], 0[2], 0[3]],
-1[0], 1[1], 1[2], 1[3]],
-2[0], 2[1], 2[2], 2[3]],
-3[0], 3[1], 3[2], 3[3]]
-
-solution = []
-storage = [0, 1, 0, 0]
-var board = new Board({n: 4})
-//row = this.attributes[0]
-//row = this.attributes[i];
-var recurse = function (row) {
-  for(){
-    if (this.attributes[i][j] === 0 && this.hasAnyRowConflicts === false && this.hasAnyColConflicts ===false) {
-      this.attributes[i][j] = 1
-      storage.push(this.attributes[i]).
-    } else {
-      for (var i = 1; i < n; i++)
-      recurse(this.attributes[i])
-    }
-    solution.push(storage.slice())
-  }
-}
-recurse(this.attributes[0])
-
-*/
-
 window.findNRooksSolution = function(n) {
   var solution = [];
   var board = new Board ({n: n});
